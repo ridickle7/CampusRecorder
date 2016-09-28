@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:androidhuman="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#99000000">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/selectable_prefbox"
+        android:orientation="vertical"
+        >
+
+        <kr.co.yapp.campusrecorder.Lib.StyledTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="20dp"
+            android:text="녹음하기"
+            android:textColor="#000"
+            android:textStyle="bold"
+            androidhuman:typeface="hanna.ttf"
+            android:textSize="18dp"
+             />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_dialog_middle"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <EditText
+                android:id="@+id/edit_name"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_edittext"
+                android:gravity="left"
+
+                android:hint="제목 입력"
+
+                android:textColor="#423730"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btn_sub_plus"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_edittext"
+                android:scaleType="centerInside"
+                android:text="분류없음" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_dialog_button_set_bottom_round"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:weightSum="100">
+            <LinearLayout
+                android:id="@+id/dialog_layout_button_ok"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:background="@drawable/selectable_dialog_lbutton_bottom_round"
+                android:clickable="true"
+                android:orientation="horizontal">
+
+                <kr.co.yapp.campusrecorder.Lib.StyledTextView
+                    android:id="@+id/btn_reg_OK"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:text="녹음시작"
+                    android:textColor="@color/main_color"
+                    android:textStyle="bold"
+                    androidhuman:typeface="hanna.ttf"
+
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dialog_layout_button_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:background="@drawable/selectable_dialog_rbutton_bottom_round"
+                android:clickable="true"
+                android:orientation="horizontal">
+
+                <kr.co.yapp.campusrecorder.Lib.StyledTextView
+                    android:id="@+id/btn_reg_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:text="취소"
+                    android:textColor="#423730"
+                    androidhuman:typeface="hanna.ttf"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

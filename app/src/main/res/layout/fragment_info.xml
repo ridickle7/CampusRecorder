@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:androidhuman="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#99000000">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/selectable_prefbox"
+        android:orientation="vertical">
+
+        <kr.co.yapp.campusrecorder.Lib.StyledTextView
+            android:id="@+id/info_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:text="파일 제목"
+            android:textColor="#000"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            androidhuman:typeface="hanna.ttf" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_dialog_middle"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="22"
+                    android:text="녹음명"
+                    android:textSize="@dimen/fragment_info_textSize"
+                    android:textColor="#000" />
+
+                <EditText
+                    android:id="@+id/info_edit_name"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="70"
+                    android:background="@drawable/bg_edittext"
+                    android:textColor="#423730"
+                    android:textSize="@dimen/fragment_info_textSize" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="22"
+                    android:text="분류명"
+                    android:textSize="@dimen/fragment_info_textSize"
+                    android:textColor="#000" />
+
+                <Button
+                    android:id="@+id/info_edit_sub"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="70"
+                    android:background="@drawable/bg_edittext"
+                    android:editable="false"
+                    android:gravity="center_vertical"
+                    android:hint="소프트웨어 공학"
+                    android:textColor="#423730"
+                    android:textSize="@dimen/fragment_info_textSize" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="22"
+                    android:gravity="center_vertical"
+                    android:text="재생시간"
+                    android:textSize="@dimen/fragment_info_textSize"
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/info_text_time"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="70"
+                    android:gravity="center_vertical"
+                    android:text="00:00:00"
+                    android:textColor="#423730"
+                    android:textSize="@dimen/fragment_info_textSize" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="22"
+                    android:gravity="center_vertical"
+                    android:text="파일명"
+                    android:textSize="@dimen/fragment_info_textSize"
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/info_text_file"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="70"
+                    android:editable="false"
+                    android:ellipsize="marquee"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:singleLine="true"
+                    android:text="녹음명_분류명.mp4"
+                    android:textColor="#423730"
+                    android:textSize="@dimen/fragment_info_textSize" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="22"
+                    android:gravity="center_vertical"
+                    android:text="파일용량"
+                    android:textSize="@dimen/fragment_info_textSize"
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/info_text_byte"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="70"
+                    android:editable="false"
+                    android:gravity="center_vertical"
+                    android:text="3 MB"
+                    android:textColor="#423730"
+                    android:textSize="@dimen/fragment_info_textSize" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_dialog_button_set_bottom_round"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:paddingTop="1dp"
+            android:weightSum="100">
+
+            <LinearLayout
+                android:id="@+id/btn_info_OK"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:background="@drawable/selectable_dialog_lbutton_bottom_round"
+                android:clickable="true"
+                android:orientation="horizontal">
+
+                <kr.co.yapp.campusrecorder.Lib.StyledTextView
+                    android:id="@+id/tv_info_OK"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:text="저장"
+                    android:textColor="@color/main_color"
+                    android:textSize="16sp"
+                    androidhuman:typeface="hanna.ttf" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_info_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:background="@drawable/selectable_dialog_rbutton_bottom_round"
+                android:clickable="true"
+                android:orientation="horizontal">
+
+                <kr.co.yapp.campusrecorder.Lib.StyledTextView
+                    android:id="@+id/tv_info_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:text="취소"
+                    android:textColor="#423730"
+                    android:textSize="16sp"
+                    androidhuman:typeface="hanna.ttf" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

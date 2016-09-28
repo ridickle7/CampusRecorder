@@ -1,0 +1,70 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">#FF4081</item>
+        <item name="colorPrimary">#F43111</item>
+        <item name="colorPrimaryDark">#DD4B4B</item>
+        <item name="colorControlHighlight">#00CC55</item>
+        <item name="colorControlNormal">#FF0000</item>
+        <item name="android:actionBarStyle">@style/ActionBar</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorAccent">#FF4081</item>
+        <item name="colorPrimary">#F43111</item>
+        <item name="colorPrimaryDark">#DD4B4B</item>
+        <item name="colorControlHighlight">#00CC55</item>
+        <item name="colorControlNormal">#FFFFFF</item>
+        <item name="android:actionBarStyle">@style/ActionBar</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    <style name="Theme.Transparent" parent="AppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <!-- 3.Dialog Transparent 추가 -->
+    <style name="Theme.Dialog.Transparent" parent="@style/Theme.Transparent">
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowBackground">@color/bg_color_dialog_transparent</item>
+    </style>
+
+    <style name="Theme.Dialog.Transparent2" parent="@style/Theme.Transparent">
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowBackground">@color/bg_color_dialog_transparent</item>
+        <item name="android:textColor">@color/bt_color</item>
+    </style>
+
+    <style name="ActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
+    </style>
+
+    <style name="ActionBar.TitleText" parent="android:TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="AppTheme.DrawerArrowToggle" parent="Base.Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@android:color/white</item>
+    </style>
+    <style name="Widget.MyApp.HeaderBar.Spinner" parent="Widget.AppCompat.Light.Spinner.DropDown.ActionBar">
+        <item name="android:background">?android:selectableItemBackground</item>
+        <item name="android:dropDownSelector">?android:selectableItemBackground</item>
+        <item name="android:divider">@null</item>
+    </style>
+
+    <style name="CustomDialog" parent="android:Theme.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:colorBackground">@android:color/white</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:itemBackground">#ffffff</item>
+        <!--<item name="android:background">#f0a400</item> &lt;!&ndash; all bg&ndash;&gt;-->
+    </style>
+</resources>

@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="kr.co.yapp.campusrecorder.Activity.ListItemActivity">
+
+
+    <item
+        android:id="@+id/menu_search"
+        android:title="Search"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_search"
+        />
+
+
+    <item android:id="@+id/action_record" android:title="record"
+        android:orderInCategory="100" app:showAsAction="always"
+        android:icon="@drawable/cal_icon"
+
+        />
+</menu>

@@ -1,0 +1,2 @@
+include ':app', ':discrete', ':float'
+include ':swipeMenuListView'

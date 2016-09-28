@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_splash">#3F6F98</color>
+    <color name="bg_color_messagelist">#EEF8F3</color>
+    <color name="main_color">#DD4B4B</color>
+    <color name="calendar_textColor">#333333</color>
+    <color name="category_addButtonColor">#DDDDDD</color>
+
+    <color name="pressed_color">#AA4B4B</color>
+    <color name="sub_color">#F45131</color>
+    <color name="text_color_messagelist_stage_message">#00823A</color>
+
+    <color name="bg_color_button_pressed">#F45131</color>
+
+    <color name="bg_color_dialog_transparent">#99000000</color>
+
+    <color name="bg_color_dialog_transparent2">#CECECE00</color>
+
+    <color name="bg_color_dialog">#F9F9F9</color>
+
+    <color name="bg_color_dialog_button">#F9F9F9</color>
+
+    <color name="outline_color_dialog_button">#E0E0E0</color>
+
+    <color name="text_color_dialog">#423730</color>
+
+    <color name="text_color_dialog_button">#423730</color>
+
+    <color name="text_color_dialog_button_pressed">#FFFFFF</color>
+
+    <color name="bg_color_preference_box">#FFFFFF</color>
+
+    <color name="line_color_preference_box">#d2d2d2</color>
+
+    <color name="text_color_preference_label">#423730</color>
+
+    <color name="text_color_preference_item_label">#999999</color>
+
+    <color name="text_color_prefbox_button_normal">#999999</color>
+
+    <color name="text_color_prefbox_button_pressed">#FFFFFF</color>
+    <color name="green">#8FCC85</color>
+    <color name="blue">#ff33b5e5</color>
+    <color name="white">#ffffff</color>
+    <color name="textColor">#333333</color>
+    <color name="bt_color">#5e5656</color>
+    <color name="caldroid_text_color">#423730</color>
+    <color name="caldroid_selected_Background_color">#423730</color>
+    <color name="caldroid_selected_Text_color">#FFFFFF</color>
+
+
+</resources>

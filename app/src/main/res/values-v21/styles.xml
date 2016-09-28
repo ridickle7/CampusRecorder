@@ -1,0 +1,51 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">#FF4081</item>
+        <item name="colorPrimary">#F43111</item>
+        <item name="colorPrimaryDark">#DD4B4B</item>
+        <item name="colorControlHighlight">#F43111</item>
+        <item name="colorControlNormal">#FF0000</item>
+        <item name="android:actionBarStyle">@style/ActionBar</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="actionBarStyle">@style/ActionBar</item>
+    </style>
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorAccent">#FF4081</item>
+        <item name="colorPrimary">#F43111</item>
+        <item name="colorPrimaryDark">#DD4B4B</item>
+        <item name="colorControlHighlight">#F43111</item>
+        <item name="colorControlNormal">#FFFFFF</item>
+        <item name="android:actionBarStyle">@style/ActionBar</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    <style name="Theme.Transparent" parent="AppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <!-- 3.Dialog Transparent 추가 -->
+    <style name="Theme.Dialog.Transparent" parent="@style/Theme.Transparent">
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowBackground">@color/bg_color_dialog_transparent</item>
+    </style>
+
+    <style name="ActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
+    </style>
+
+    <style name="ActionBar.TitleText" parent="android:TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="AppTheme.DrawerArrowToggle" parent="Base.Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@android:color/white</item>
+    </style>
+</resources>

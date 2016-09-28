@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CampusRecorder.iml" filepath="$PROJECT_DIR$/CampusRecorder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/discrete/discrete.iml" filepath="$PROJECT_DIR$/discrete/discrete.iml" />
+      <module fileurl="file://$PROJECT_DIR$/float/float.iml" filepath="$PROJECT_DIR$/float/float.iml" />
+      <module fileurl="file://$PROJECT_DIR$/swipeMenuListView/swipeMenuListView.iml" filepath="$PROJECT_DIR$/swipeMenuListView/swipeMenuListView.iml" />
+    </modules>
+  </component>
+</project>
