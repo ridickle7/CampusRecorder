@@ -40,6 +40,7 @@ public class CategoryActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
         init();
+        // 초기 설정
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setBackgroundResource(R.color.main_color);
