@@ -22,13 +22,14 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
+import com.tsengvn.typekit.TypekitContextWrapper;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import kr.co.yapp.campusrecorder.Adapter.ListItemAdapter;
-import kr.co.yapp.campusrecorder.Adapter.RecordItemAdapter;
 import kr.co.yapp.campusrecorder.Data.DBAdapter;
 import kr.co.yapp.campusrecorder.Data.RecFile;
 import kr.co.yapp.campusrecorder.Data.SectionItem;
@@ -547,5 +548,12 @@ public class ListItemActivity extends ActionBarActivity implements AdapterView.O
     public void getDialogValue(ArrayList arrList){
         mRecFile = new ListItemAdapter(getApplicationContext(), arrList, dba, getFragmentManager(), ListItemActivity.this);
         recyclerView.setAdapter(mRecFile);
+    }
+
+
+    /* for font */
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
     }
 }

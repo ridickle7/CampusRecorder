@@ -1,5 +1,6 @@
 package kr.co.yapp.campusrecorder.Activity;
 
+import android.content.Context;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.MenuItem;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.tsengvn.typekit.TypekitContextWrapper;
 
 import kr.co.yapp.campusrecorder.R;
 
@@ -52,5 +54,12 @@ public class SplashActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    /* for font */
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
     }
 }

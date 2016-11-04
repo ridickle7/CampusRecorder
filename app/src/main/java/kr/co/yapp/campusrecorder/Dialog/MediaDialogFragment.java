@@ -54,6 +54,7 @@ public class MediaDialogFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_media, container, false);
+
         cancleButton = (LinearLayout) v.findViewById(R.id.dialog_layout_button_cancel);
         OkButton = (LinearLayout) v.findViewById(R.id.dialog_layout_button_ok);
         tvTitle = (TextView) v.findViewById (R.id.tv_media_title);

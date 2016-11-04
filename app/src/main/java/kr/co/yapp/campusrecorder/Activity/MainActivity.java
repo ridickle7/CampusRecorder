@@ -7,14 +7,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,14 +20,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
-import com.baoyz.swipemenulistview.SwipeMenu;
-import com.baoyz.swipemenulistview.SwipeMenuCreator;
-import com.baoyz.swipemenulistview.SwipeMenuItem;
-import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
+import com.tsengvn.typekit.TypekitContextWrapper;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -61,7 +57,7 @@ public class MainActivity extends ActionBarActivity {
     private LinearLayout recfileSubject;
     private LayoutInflater inflater;
 
-    private SwipeMenuListView _list;
+    private ListView _list;
     private List<RecFile> list;
     private RecordItemAdapter mRecFile;
     private Date oldselectDate1, selectDate1, fSelectDate1;
@@ -170,62 +166,8 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-
-        /*
-        ActionBar ab = getSupportActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);
-        ab.setHomeButtonEnabled(true);
-        //
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawer = (LinearLayout) findViewById(R.id.navdrawer);
-        drawerArrow = new DrawerArrowDrawable(this) {
-            @Override
-            public boolean isLayoutRtl() {
-                return false;
-            }
-        };
-
-        mDrawerToggle = new android.support.v7.app.ActionBarDrawerToggle(this, mDrawerLayout,
-                 ,R.string.drawer_open,
-                R.string.drawer_close) {
-
-            public void onDrawerClosed(View view) {
-                super.onDrawerClosed(view);
-                invalidateOptionsMenu();
-            }
-
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-                invalidateOptionsMenu();
-            }
-        };
-        mDrawerLayout.setDrawerListener(mDrawerToggle);
-        mDrawerToggle.syncState();
-        */
-/*
-        //dlDrawer = (DrawerLayout)findViewById(R.id.dl_activity_main_drawer);
-        dtToggle = new ActionBarDrawerToggle(this, dlDrawer,
-                R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close){
-
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
-            }
-
-            @Override
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-            }
-
-        };
-        dlDrawer.setDrawerListener(dtToggle);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-*/
-
-        //
-
         //findViewById(할당)
-        _list = (SwipeMenuListView) findViewById(R.id.listView);
+        _list = (ListView) findViewById(R.id.listView);
         //임시용으로
 
 
@@ -385,121 +327,121 @@ public class MainActivity extends ActionBarActivity {
         mRecFile = new RecordItemAdapter(getApplicationContext(), R.layout.item_list, list);
         _list.setAdapter(mRecFile);
         _list.setBackgroundColor(Color.WHITE);
-        SwipeMenuCreator creator = new SwipeMenuCreator() {
+//        SwipeMenuCreator creator = new SwipeMenuCreator() {
+//
+//            public void create(SwipeMenu menu) {
+//                // create "open" item
+//                SwipeMenuItem openItem = new SwipeMenuItem(
+//                        getApplicationContext());
+//                // set item background
+//                openItem.setBackground(new ColorDrawable(Color.rgb(0xCD, 0xCE,
+//                        0xCF)));
+//
+//                // set item width
+//                openItem.setWidth(dp2px(80));
+//                // set a icon
+//                openItem.setIcon(R.drawable.ic_share);
+//                // add to menu
+//                menu.addMenuItem(openItem);
+//
+//                // create "description" item
+//                SwipeMenuItem descriptItem = new SwipeMenuItem(
+//                        getApplicationContext());
+//                // set item background
+//                descriptItem.setBackground(new ColorDrawable(Color.rgb(0xBB, 0xBC,
+//                        0xBE)));
+//                // set item width
+//                descriptItem.setWidth(dp2px(80));
+//                // set a icon
+//                descriptItem.setIcon(R.drawable.ic_modify);
+//                // add to menu
+//                menu.addMenuItem(descriptItem);
+//
+//                // create "delete" item
+//                SwipeMenuItem deleteItem = new SwipeMenuItem(
+//                        getApplicationContext());
+//                // set item background
+//                deleteItem.setBackground(new ColorDrawable(Color.rgb(0xA8, 0xAA,
+//                        0xAD)));
+//                // set item width
+//                deleteItem.setWidth(dp2px(80));
+//                // set a icon
+//                deleteItem.setIcon(R.drawable.ic_delete);
+//                // add to menu
+//                menu.addMenuItem(deleteItem);
+//            }
+//        };
 
-            public void create(SwipeMenu menu) {
-                // create "open" item
-                SwipeMenuItem openItem = new SwipeMenuItem(
-                        getApplicationContext());
-                // set item background
-                openItem.setBackground(new ColorDrawable(Color.rgb(0xCD, 0xCE,
-                        0xCF)));
-
-                // set item width
-                openItem.setWidth(dp2px(80));
-                // set a icon
-                openItem.setIcon(R.drawable.ic_share);
-                // add to menu
-                menu.addMenuItem(openItem);
-
-                // create "description" item
-                SwipeMenuItem descriptItem = new SwipeMenuItem(
-                        getApplicationContext());
-                // set item background
-                descriptItem.setBackground(new ColorDrawable(Color.rgb(0xBB, 0xBC,
-                        0xBE)));
-                // set item width
-                descriptItem.setWidth(dp2px(80));
-                // set a icon
-                descriptItem.setIcon(R.drawable.ic_modify);
-                // add to menu
-                menu.addMenuItem(descriptItem);
-
-                // create "delete" item
-                SwipeMenuItem deleteItem = new SwipeMenuItem(
-                        getApplicationContext());
-                // set item background
-                deleteItem.setBackground(new ColorDrawable(Color.rgb(0xA8, 0xAA,
-                        0xAD)));
-                // set item width
-                deleteItem.setWidth(dp2px(80));
-                // set a icon
-                deleteItem.setIcon(R.drawable.ic_delete);
-                // add to menu
-                menu.addMenuItem(deleteItem);
-            }
-        };
-
-        // set creator
-        _list.setMenuCreator(creator);
-        //
-        _list.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(final int position, SwipeMenu menu, int index) {
-                switch (index) {
-                    case 0:
-                        // open
-                        // 공유하기 (암시적인 인텐트 - 액션만 지정(보내기만 함))
-
-                        RecFile newItem = new RecFile();
-
-                        newItem = dba.getRecFile(list.get(position).getRId());
-                        rName = newItem.getrName();
-                        rPath = newItem.getPath();
-
-                        Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
-//                        shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(rPath));
-                        shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://" + rPath));
-                        shareIntent.setType("video/mp4");
-                        startActivity(Intent.createChooser(shareIntent, "공유하기"));
-                        //Toast.makeText(getApplicationContext(), "file://" + rPath, Toast.LENGTH_SHORT).show();
-//SMS인 경우 (두 번 공유하기가 나와 수정)
-//                        shareIntent.putExtra("exit_on_sent", true);
-//                        shareIntent.putExtra("sms_body", "MMS 테스트입니다.");
-//                        startActivity(Intent.createChooser(shareIntent, "How do you want to send message?"));
-
-                        break;
-                    case 1:
-                        //DB 상
-                        RecFile rec = list.get(position);
-//                        RecordApplication.temp_position = position;
-                        RecordInfoFragment infoFragment = RecordInfoFragment.newInstance(4, rec, list, position);
-                        infoFragment.setStyle(R.style.Theme_Dialog_Transparent, R.style.Theme_Dialog_Transparent);
-                        infoFragment.show(getFragmentManager(), "TAG");
-                        break;
-
-                    case 2:
-                        AlertDialog.Builder alert_confirm = new AlertDialog.Builder(MainActivity.this, AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
-                        alert_confirm.setMessage("파일을 삭제 하시겠습니까? \n 삭제 시 녹음파일을 복구할 수 없습니다.").setCancelable(false).setPositiveButton("확인",
-                                new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        // 'YES'
-                                        //DB 상
-                                        Log.d("ddd", "" + list.get(position).getRecDate());
-                                        dba.deleteRecFile(list.get(position).getRId());
-
-                                        //리스트 상
-                                        list.remove(position);
-                                        mRecFile.notifyDataSetChanged();
-
-                                    }
-                                }).setNegativeButton("취소",
-                                new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        // 'No'
-                                        dialog.cancel();
-                                    }
-                                });
-                        AlertDialog alert = alert_confirm.create();
-                        alert.show();
-                        break;
-
-                }
-                return false;
-            }
-        });
+//        // set creator
+//        _list.setMenuCreator(creator);
+//        //
+//        _list.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(final int position, SwipeMenu menu, int index) {
+//                switch (index) {
+//                    case 0:
+//                        // open
+//                        // 공유하기 (암시적인 인텐트 - 액션만 지정(보내기만 함))
+//
+//                        RecFile newItem = new RecFile();
+//
+//                        newItem = dba.getRecFile(list.get(position).getRId());
+//                        rName = newItem.getrName();
+//                        rPath = newItem.getPath();
+//
+//                        Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+////                        shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(rPath));
+//                        shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://" + rPath));
+//                        shareIntent.setType("video/mp4");
+//                        startActivity(Intent.createChooser(shareIntent, "공유하기"));
+//                        //Toast.makeText(getApplicationContext(), "file://" + rPath, Toast.LENGTH_SHORT).show();
+////SMS인 경우 (두 번 공유하기가 나와 수정)
+////                        shareIntent.putExtra("exit_on_sent", true);
+////                        shareIntent.putExtra("sms_body", "MMS 테스트입니다.");
+////                        startActivity(Intent.createChooser(shareIntent, "How do you want to send message?"));
+//
+//                        break;
+//                    case 1:
+//                        //DB 상
+//                        RecFile rec = list.get(position);
+////                        RecordApplication.temp_position = position;
+//                        RecordInfoFragment infoFragment = RecordInfoFragment.newInstance(4, rec, list, position);
+//                        infoFragment.setStyle(R.style.Theme_Dialog_Transparent, R.style.Theme_Dialog_Transparent);
+//                        infoFragment.show(getFragmentManager(), "TAG");
+//                        break;
+//
+//                    case 2:
+//                        AlertDialog.Builder alert_confirm = new AlertDialog.Builder(MainActivity.this, AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
+//                        alert_confirm.setMessage("파일을 삭제 하시겠습니까? \n 삭제 시 녹음파일을 복구할 수 없습니다.").setCancelable(false).setPositiveButton("확인",
+//                                new DialogInterface.OnClickListener() {
+//                                    @Override
+//                                    public void onClick(DialogInterface dialog, int which) {
+//                                        // 'YES'
+//                                        //DB 상
+//                                        Log.d("ddd", "" + list.get(position).getRecDate());
+//                                        dba.deleteRecFile(list.get(position).getRId());
+//
+//                                        //리스트 상
+//                                        list.remove(position);
+//                                        mRecFile.notifyDataSetChanged();
+//
+//                                    }
+//                                }).setNegativeButton("취소",
+//                                new DialogInterface.OnClickListener() {
+//                                    @Override
+//                                    public void onClick(DialogInterface dialog, int which) {
+//                                        // 'No'
+//                                        dialog.cancel();
+//                                    }
+//                                });
+//                        AlertDialog alert = alert_confirm.create();
+//                        alert.show();
+//                        break;
+//
+//                }
+//                return false;
+//            }
+//        });
 
         //media 재생
         _list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -511,6 +453,7 @@ public class MainActivity extends ActionBarActivity {
                 dialogFragment.show(getFragmentManager(), "TAG");
             }
         });
+
 
         _list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             AlertDialog dialog;
@@ -630,26 +573,6 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(intent3);
                 finish();
 
-//                // 녹음 세팅 다이얼로그 화면으로 넘어감
-//                RecordDialogFragment dialogFragmentR = RecordDialogFragment.newInstance();
-//                dialogFragmentR.setStyle(R.style.Theme_Dialog_Transparent, R.style.Theme_Dialog_Transparent);
-//                dialogFragmentR.show(getFragmentManager(), "TAG");
-//                break;
-
-//            case R.id.action_ready:
-//                // dba.insertSubject("분야없음");//
-//                break;
-//            case R.id.action_media:
-//                RecFile rec = new RecFile();
-//                rec.setrName("Ch01");
-//                MediaDialogFragment dialogFragment = MediaDialogFragment.newInstance(3, rec);
-//                dialogFragment.setStyle(R.style.Theme_Dialog_Transparent, R.style.Theme_Dialog_Transparent);
-//                dialogFragment.show(getFragmentManager(), "TAG");
-//                break;
-//            case R.id.action_list:
-//                Intent intent3 = new Intent(MainActivity.this, ListItemActivity.class);
-//                startActivity(intent3);
-//                break;
             default:
                 return false;
         }
@@ -674,19 +597,11 @@ public class MainActivity extends ActionBarActivity {
         _list.setAdapter(mRecFile);
     }
 
-    private int dp2px(int dp) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
-                getResources().getDisplayMetrics());
+
+    /* for font */
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
     }
 
-    public String makeTime(int second) {
-        String str = "";
-        String parsing = String.format("%02d", second / 3600);//64800 -> 10800
-        str = str + parsing + ":";
-        parsing = String.format("%02d", (second % 3600) / 60);
-        str = str + parsing + ":";
-        parsing = String.format("%02d", (second % 3600) % 60);
-        str = str + parsing;
-        return str;
-    }
 }

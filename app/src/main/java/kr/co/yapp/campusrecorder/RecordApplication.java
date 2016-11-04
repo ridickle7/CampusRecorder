@@ -2,7 +2,10 @@ package kr.co.yapp.campusrecorder;
 
 import android.app.Application;
 import android.database.Cursor;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
+
+import com.tsengvn.typekit.Typekit;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +22,9 @@ public class RecordApplication extends Application {
 
     public static String fileName;
 
+    public static Typeface typeface;
+    public static Typeface typeface_bold;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -30,6 +36,15 @@ public class RecordApplication extends Application {
         while(cursor.moveToNext()){
             list.add(cursor.getString(0));
         }
+
+        typeface = Typekit.createFromAsset(this, "NotoSansKR-Regular-Hestia.otf");
+        Typekit.getInstance()
+                .addNormal(typeface)
+                .addBold(Typekit.createFromAsset(this, "NotoSansKR-Black-Hestia.otf"));
+
+        typeface_bold = Typeface
+                .createFromAsset(this.getAssets(), "NotoSansKR-Black-Hestia.otf");
+
 
     }
     public void addSubject(String subject){
@@ -48,5 +63,4 @@ public class RecordApplication extends Application {
         v.getItemAnimator().setMoveDuration(200);
         v.getItemAnimator().setChangeDuration(100);
     }
-
 }

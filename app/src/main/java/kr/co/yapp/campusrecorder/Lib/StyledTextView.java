@@ -15,12 +15,12 @@ public class StyledTextView extends TextView {
 
     public StyledTextView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        applyTypeface(context, attrs);
+//        applyTypeface(context, attrs);
     }
 
     public StyledTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        applyTypeface(context, attrs);
+//        applyTypeface(context, attrs);
     }
 
     public StyledTextView(Context context) {

@@ -1,2 +1,1 @@
-include ':app', ':discrete', ':float'
-include ':swipeMenuListView'
+include ':app', ':discrete'

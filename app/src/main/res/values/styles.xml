@@ -67,4 +67,14 @@
         <item name="android:itemBackground">#ffffff</item>
         <!--<item name="android:background">#f0a400</item> &lt;!&ndash; all bg&ndash;&gt;-->
     </style>
+
+
+    <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
+        <item name="android:typeface">sans</item>
+    </style>
+
+    <style name="AppTheme.DialogWhenLarge" parent="@android:style/Theme.Holo.Light.DialogWhenLarge">
+        <item name="android:typeface">sans</item>
+    </style>
+
 </resources>

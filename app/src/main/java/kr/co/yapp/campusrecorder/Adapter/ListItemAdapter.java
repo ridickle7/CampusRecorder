@@ -77,7 +77,8 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ListIt
             final SectionItem headerItem = (SectionItem) item;
             final ListHeaderViewHolder itemController = (ListHeaderViewHolder) holder;
             itemController.header_title.setText(headerItem.getTitle());
-            itemController.header_number.setText(headerItem.getItemNumber() + "");
+//            itemController.header_number.setText(headerItem.getItemNumber() + "");
+            itemController.header_number.setText("");
         } else {
             final RecFile childItem = (RecFile) item;
             final ListChildViewHolder itemController = (ListChildViewHolder) holder;

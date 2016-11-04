@@ -22,6 +22,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import com.tsengvn.typekit.TypekitContextWrapper;
+
 import java.util.ArrayList;
 
 import kr.co.yapp.campusrecorder.IRecordAidlInterface;
@@ -285,5 +287,11 @@ public class RecordActivity extends ActionBarActivity {
         }
     };
 
+
+    /* for font */
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
+    }
 
 }

@@ -39,12 +39,10 @@ public class RecordDialogFragment extends DialogFragment {
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_save,container,false);
 
-
-
         cancleButton = (LinearLayout)v.findViewById(R.id.dialog_layout_button_cancel);
         OkButton = (LinearLayout)v.findViewById(R.id.dialog_layout_button_ok);
         editName = (EditText)v.findViewById(R.id.edit_name);
-        btn = (Button)v.findViewById(R.id.btn_sub_plus);
+        btn = (Button) v.findViewById(R.id.btn_sub_plus);
         dba = new DBAdapter(getActivity().getApplicationContext());
         dba = dba.open();
 

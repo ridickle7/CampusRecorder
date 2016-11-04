@@ -1,11 +1,7 @@
 package kr.co.yapp.campusrecorder.Adapter;
 
 import android.content.Context;
-import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -29,6 +25,9 @@ public class CategoryItemAdapter extends ArrayAdapter<String> {
         this.resource=resource;
         this.data=objects;
         this.mInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        /* for font */
+//        super.attachBaseContext(TypekitContextWrapper.wrap(this.context));
     }
 
     @Override
@@ -37,6 +36,7 @@ public class CategoryItemAdapter extends ArrayAdapter<String> {
         if(convertView == null)
         {
             convertView = mInflater.inflate(resource, null);
+
         }
         TextView category_item=(TextView)convertView.findViewById(R.id.category_item);
         category_item.setTextColor(context.getResources().getColor(R.color.textColor));
@@ -44,4 +44,6 @@ public class CategoryItemAdapter extends ArrayAdapter<String> {
 
         return convertView;
     }
+
+
 }
