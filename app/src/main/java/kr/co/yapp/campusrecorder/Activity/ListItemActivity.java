@@ -34,6 +34,7 @@ import kr.co.yapp.campusrecorder.Data.DBAdapter;
 import kr.co.yapp.campusrecorder.Data.RecFile;
 import kr.co.yapp.campusrecorder.Data.SectionItem;
 import kr.co.yapp.campusrecorder.Dialog.RecordDialogFragment;
+import kr.co.yapp.campusrecorder.Lib.BackPressCloseHandler;
 import kr.co.yapp.campusrecorder.R;
 import kr.co.yapp.campusrecorder.RecordApplication;
 
@@ -56,6 +57,7 @@ public class ListItemActivity extends ActionBarActivity implements AdapterView.O
 //    ActionBarDrawerToggle dtToggle;
 //    private LinearLayout mDrawer;
 
+    private BackPressCloseHandler backPressCloseHandler;
     private ListItemAdapter mRecFile;
     private LinearLayoutManager linearLayoutManager;
     //private RecordDateItemAdapter mRecFile2;
@@ -73,6 +75,7 @@ public class ListItemActivity extends ActionBarActivity implements AdapterView.O
         dba.open();
         mInflater = (LayoutInflater)getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         list = new ArrayList();
+        backPressCloseHandler = new BackPressCloseHandler(this);
 
         this.overridePendingTransition(R.anim.animation_enter,
                 R.anim.animation_leave);
@@ -555,5 +558,11 @@ public class ListItemActivity extends ActionBarActivity implements AdapterView.O
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
+    }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        backPressCloseHandler.onBackPressed();
     }
 }

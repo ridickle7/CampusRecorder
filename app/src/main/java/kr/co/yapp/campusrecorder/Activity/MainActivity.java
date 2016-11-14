@@ -40,6 +40,7 @@ import kr.co.yapp.campusrecorder.Data.RecFile;
 import kr.co.yapp.campusrecorder.Dialog.MediaDialogFragment;
 import kr.co.yapp.campusrecorder.Dialog.RecordDialogFragment;
 import kr.co.yapp.campusrecorder.Dialog.RecordInfoFragment;
+import kr.co.yapp.campusrecorder.Lib.BackPressCloseHandler;
 import kr.co.yapp.campusrecorder.R;
 
 //주석
@@ -52,6 +53,7 @@ public class MainActivity extends ActionBarActivity {
     String rName;
     String rPath;
 
+    private BackPressCloseHandler backPressCloseHandler;
     private DBAdapter dba;
     private Context ctx = this;
     private LinearLayout recfileSubject;
@@ -547,6 +549,7 @@ public class MainActivity extends ActionBarActivity {
         dba = new DBAdapter(getApplicationContext());
         dba = dba.open();
         inflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        backPressCloseHandler = new BackPressCloseHandler(this);
     }
 
     @Override
@@ -602,6 +605,12 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
+    }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        backPressCloseHandler.onBackPressed();
     }
 
 }
