@@ -49,20 +49,19 @@ import kr.co.yapp.campusrecorder.Data.RecFile;
  * Created by BH on 2015-02-13.
  */
 public class RecordService extends Service {
-
-
     //상태 상수
     public final static int STATE_PREV = 0;     //녹음 시작 전
     public final static int STATE_RECORDING = 1;    //녹음 중
     public final static int STATE_PAUSE = 2;        // 일시 정지 중
 
-    //인텐트 상수
-    public static final String ACTION_PREV="xxx.yyy.zzz.STATE_PREV";
-    public static final String ACTION_PREV_STOP="xxx.yyy.zzz.STATE_PREV_STOP";
-    public static final String ACTION_RECORDING="xxx.yyy.zzz.STATE_RECORDING";
-    public static final String ACTION_PAUSE="xxx.yyy.zzz.STATE_PAUSE";
-    public static final String ACTION_STOP="xxx.yyy.zzz.STATE_STOP";
+    public final static int RECORD_AUDIO = 0;
 
+    //인텐트 상수
+    public static final String ACTION_PREV = "xxx.yyy.zzz.STATE_PREV";
+    public static final String ACTION_PREV_STOP = "xxx.yyy.zzz.STATE_PREV_STOP";
+    public static final String ACTION_RECORDING = "xxx.yyy.zzz.STATE_RECORDING";
+    public static final String ACTION_PAUSE = "xxx.yyy.zzz.STATE_PAUSE";
+    public static final String ACTION_STOP = "xxx.yyy.zzz.STATE_STOP";
 
 
     RemoteViews contentView;
@@ -136,7 +135,6 @@ public class RecordService extends Service {
             myAudioRecorder.setAudioEncodingBitRate(320000);
             myAudioRecorder.setAudioSamplingRate(44100);
             myAudioRecorder.setOutputFile(nowFile); //출력 파일 지정
-
 
             try {
                 myAudioRecorder.prepare();
@@ -385,7 +383,7 @@ public class RecordService extends Service {
     NotificationCompat.Builder mBuilder;
     Notification noti;
 
-    public void createNoti(String text, int flag) throws RemoteException{
+    public void createNoti(String text, int flag) throws RemoteException {
         this.stopForeground(true);
         Intent notiIntent = new Intent(this, RecordActivity.class);
         notiIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -420,7 +418,7 @@ public class RecordService extends Service {
         }
 
         //녹음 중인 상태 1
-        else if(flag == STATE_RECORDING){
+        else if (flag == STATE_RECORDING) {
             Intent intent_play = new Intent(ACTION_RECORDING);
             Intent intent_stop = new Intent(ACTION_STOP);
             contentView.setInt(R.id.btn_noti_play, "setBackgroundResource", R.drawable.pause_btb);
@@ -429,15 +427,13 @@ public class RecordService extends Service {
         }
 
         //녹음 일시정지 상태 2
-        else if(flag == STATE_PAUSE){
+        else if (flag == STATE_PAUSE) {
             Intent intent_play = new Intent(ACTION_PAUSE);
             Intent intent_stop = new Intent(ACTION_STOP);
             contentView.setInt(R.id.btn_noti_play, "setBackgroundResource", R.drawable.play_btn);
             contentView.setOnClickPendingIntent(R.id.btn_noti_play, PendingIntent.getService(this, 0, intent_play, PendingIntent.FLAG_UPDATE_CURRENT));
             contentView.setOnClickPendingIntent(R.id.btn_noti_stop, PendingIntent.getService(this, 0, intent_stop, PendingIntent.FLAG_UPDATE_CURRENT));
         }
-
-
 
 
         noti.contentView = contentView;
@@ -458,14 +454,13 @@ public class RecordService extends Service {
             createNoti(RecordApplication.fileName, STATE_PREV);
             //foreground 설정*/
             //주석
-        }
-        catch(RemoteException e){
+        } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId){
+    public int onStartCommand(Intent intent, int flags, int startId) {
         try {
             if (intent != null) {
                 String action = intent.getAction();
@@ -474,7 +469,7 @@ public class RecordService extends Service {
                         mBinder.play();
                     } else if (action.equals(ACTION_PREV_STOP)) {
                         Toast.makeText(getApplicationContext(), "녹음한 내용이 없습니다.", Toast.LENGTH_LONG);
-                    }else if (action.equals(ACTION_PAUSE)) {
+                    } else if (action.equals(ACTION_PAUSE)) {
                         mBinder.play();
                     } else if (action.equals(ACTION_RECORDING)) {
                         mBinder.pause();
@@ -483,8 +478,7 @@ public class RecordService extends Service {
                     }
                 }
             }
-        }
-        catch (RemoteException e){
+        } catch (RemoteException e) {
             e.printStackTrace();
         }
         return super.onStartCommand(intent, flags, startId);

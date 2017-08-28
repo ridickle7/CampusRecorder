@@ -1,5 +1,6 @@
 package kr.co.yapp.campusrecorder.Activity;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -8,11 +9,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
 import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -33,7 +36,7 @@ import kr.co.yapp.campusrecorder.TimerTime;
 
 
 public class RecordActivity extends ActionBarActivity {
-
+    private static int permissionOpen = 0;
     private MediaRecorder myAudioRecorder;  // 안드로이드 녹음 객체
     private String outputFile = null;       // 최종 저장 파일 경로
     private Button start, stop, play, pause, stopBtn;
@@ -73,6 +76,8 @@ public class RecordActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_record);
+
+        permissionCheck();
 
         //브로드캐스트 리시버 등록
         //서비스 -> 액티비티로 통신
@@ -292,6 +297,22 @@ public class RecordActivity extends ActionBarActivity {
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
+    }
+
+    private void permissionCheck(){
+        // 안드로이드 sdk 버전 업데이트에 따라 필요한 권한 설정
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO},
+                    permissionOpen);
+        }
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    permissionOpen);
+        }
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SYSTEM_ALERT_WINDOW) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SYSTEM_ALERT_WINDOW},
+                    permissionOpen);
+        }
     }
 
 }
