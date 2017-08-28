@@ -313,6 +313,7 @@ public class RecordActivity extends ActionBarActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SYSTEM_ALERT_WINDOW},
                     permissionOpen);
         }
+        //
     }
 
 }
