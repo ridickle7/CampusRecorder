@@ -31,6 +31,7 @@ import java.util.ArrayList;
 
 import kr.co.yapp.campusrecorder.IRecordAidlInterface;
 import kr.co.yapp.campusrecorder.R;
+import kr.co.yapp.campusrecorder.RecordApplication;
 import kr.co.yapp.campusrecorder.RecordService;
 import kr.co.yapp.campusrecorder.TimerTime;
 
@@ -78,6 +79,7 @@ public class RecordActivity extends ActionBarActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_record);
 
         permissionCheck();
+        RecordApplication.setRecordActivityContext(this);
 
         //브로드캐스트 리시버 등록
         //서비스 -> 액티비티로 통신

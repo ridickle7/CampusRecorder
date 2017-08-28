@@ -1,6 +1,7 @@
 package kr.co.yapp.campusrecorder;
 
 import android.app.Application;
+import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
@@ -19,6 +20,7 @@ public class RecordApplication extends Application {
     private List<String> list;
     DBAdapter dbAdapter;
     public static int temp_position = 0;
+    public static Context tempContext;
 
     public static String fileName;
 
@@ -62,5 +64,9 @@ public class RecordApplication extends Application {
         v.getItemAnimator().setRemoveDuration(100);
         v.getItemAnimator().setMoveDuration(200);
         v.getItemAnimator().setChangeDuration(100);
+    }
+
+    public static void setRecordActivityContext(Context ctx){
+        tempContext = ctx;
     }
 }

@@ -2,38 +2,42 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/layout"
     android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:padding="10dp" >
-    <ImageView android:id="@+id/image"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/image"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_marginRight="10dp"
-        android:src="@drawable/ic_launcher"
-        />
-    <TextView android:id="@+id/title"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/title"
+        style="Custom Notification Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/image"
         android:text="hi"
-        android:textColor="@color/white"
-        style="Custom Notification Title" />
-   <Button
-       android:id="@+id/btn_noti_stop"
-       android:layout_width="50dp"
-       android:layout_height="50dp"
-       android:layout_centerVertical="true"
-       android:background="@drawable/stop_btn"
-       android:layout_alignParentRight="true"
-       />
+        android:textColor="@color/black" />
+
+    <Button
+        android:id="@+id/btn_noti_stop"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/stop_btn" />
+
     <Button
         android:id="@+id/btn_noti_play"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginRight="30dp"
         android:layout_centerVertical="true"
+        android:layout_marginRight="30dp"
+        android:layout_toLeftOf="@id/btn_noti_stop"
         android:background="@drawable/play_btn"
-        android:layout_toLeftOf= "@id/btn_noti_stop"
 
         />
 </RelativeLayout>

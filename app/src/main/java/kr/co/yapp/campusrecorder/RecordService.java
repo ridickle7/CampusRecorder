@@ -3,7 +3,6 @@ package kr.co.yapp.campusrecorder;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
@@ -54,15 +53,13 @@ public class RecordService extends Service {
     public final static int STATE_RECORDING = 1;    //녹음 중
     public final static int STATE_PAUSE = 2;        // 일시 정지 중
 
-    public final static int RECORD_AUDIO = 0;
-
     //인텐트 상수
     public static final String ACTION_PREV = "xxx.yyy.zzz.STATE_PREV";
     public static final String ACTION_PREV_STOP = "xxx.yyy.zzz.STATE_PREV_STOP";
     public static final String ACTION_RECORDING = "xxx.yyy.zzz.STATE_RECORDING";
     public static final String ACTION_PAUSE = "xxx.yyy.zzz.STATE_PAUSE";
     public static final String ACTION_STOP = "xxx.yyy.zzz.STATE_STOP";
-
+    private static final String TAG = "RecordService";
 
     RemoteViews contentView;
 
@@ -75,7 +72,6 @@ public class RecordService extends Service {
     private String rname;       //녹음 파일 명
     private DBAdapter dba;      //디비
     int count = 0;                //재생 카운트
-    private Context ctx = this;
 
     private int state = STATE_PREV; // 초기 상태
 
@@ -112,13 +108,10 @@ public class RecordService extends Service {
             return state;
         }
 
-
         @Override
         public void play() throws RemoteException {
-
             sendBroadcast(new Intent("play"));      //액티비티로 브로드캐스트 날림, 시작됬다고 알림
-            createNoti("녹음 중입니다..", STATE_RECORDING);
-
+            createNoti("녹음 중..!", STATE_RECORDING);
 
             count += 1; //파일 넘버 1 증가
             outputFile = Environment.getExternalStorageDirectory().
@@ -279,7 +272,6 @@ public class RecordService extends Service {
 
             sendBroadcast(new Intent("xyz"));   //액티비티로 스탑 리시버 전송
             stopSelf();
-
         }
 
         @Override
@@ -390,19 +382,15 @@ public class RecordService extends Service {
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notiIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         mBuilder = new NotificationCompat.Builder(getApplicationContext());
-
         mBuilder.setSmallIcon(R.drawable.ic_launcher);
         mBuilder.setTicker("CampusRecorder");
         mBuilder.setWhen(System.currentTimeMillis());
         mBuilder.setNumber(10);
         mBuilder.setContentTitle("CampusRecorder");
         mBuilder.setContentText("text");
-
         mBuilder.setContentIntent(pendingIntent);
 
-
         noti = mBuilder.build();
-
 
         contentView = new RemoteViews(getPackageName(), R.layout.noti_layout);
         contentView.setTextViewText(R.id.title, text);
@@ -449,6 +437,7 @@ public class RecordService extends Service {
 
         dba = new DBAdapter(getApplicationContext());
         dba = dba.open();
+
         outputFileList = new ArrayList<String>();
         try {
             createNoti(RecordApplication.fileName, STATE_PREV);
@@ -490,7 +479,5 @@ public class RecordService extends Service {
         super.onDestroy();
         RecordApplication.fileName = "";
     }
-
-
 }
 
