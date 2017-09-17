@@ -22,7 +22,7 @@
 
 #### ※ Daily Recorder는 사용자의 개인정보를 수집하지 않습니다.
 
-※ 만든 사람<br>
+#### ※ 만든 사람<br>
 기획자 : 이지윤(leeejiyoon@gmail.com)<br>
 디자이너 : 심다혜(dahye2011@gmail.com)<br>
 개발자 : 박병호(bh9928@naver.com), 이상우(ridickle7@gmail.com) <br>
