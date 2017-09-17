@@ -20,12 +20,9 @@
 녹음 버튼만 누르면 OK !<br>
 언제 어디서나 편하게 녹음하세요~<br>
 
-※ Daily Recorder는 사용자의 개인정보를 수집하지 않습니다.
+#### ※ Daily Recorder는 사용자의 개인정보를 수집하지 않습니다.
 
 ※ 만든 사람<br>
 기획자 : 이지윤(leeejiyoon@gmail.com)<br>
 디자이너 : 심다혜(dahye2011@gmail.com)<br>
 개발자 : 박병호(bh9928@naver.com), 이상우(ridickle7@gmail.com) <br>
-
-![Image](https://github.com/ridickle7/LeeSangWoo_Portfolio/blob/master/1.%20ImageRef/1.%20DailyRecorder/icon(512).png)
-
